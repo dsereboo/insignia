@@ -11,6 +11,9 @@
     "type": "git",
     "url": "https://github.com/dsereboo/insignia.git"
   },
+  "dependencies": {
+    "@insignia/shared": "workspace:*"
+  },
   "author": "dsereboo",
   "license": "MIT",
   "files": ["dist"],
