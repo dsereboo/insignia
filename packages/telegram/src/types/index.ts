@@ -86,11 +86,6 @@ export interface SetMyShortDescription {
     language_code?: string
 }
 
-export interface GetMyDescription {
-    //replace with ISO-639-1 code
-    language_code?: string
-}
-
 export type PhotoTypes = (typeof PHOTO_TYPES)[keyof typeof PHOTO_TYPES]
 
 export interface InputProfilePhotoStatic {

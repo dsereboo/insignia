@@ -12,16 +12,17 @@ export const BOT_SCOPE_TYPES = {
 
 export const METHOD_NAMES = {
     SET_COMMANDS: '/setMyCommands',
-    DELETE_COMMANDS: '/deleteMyCommands'
+    DELETE_COMMANDS: '/deleteMyCommands',
+    GET_COMMANDS: '/getMyCommands'
 } as const
 
 export const PHOTO_TYPES = {
-    STATIC: "static",
-    ANIMATED: "animated"
-}
+    STATIC: 'static',
+    ANIMATED: 'animated'
+} as const
 
-export const MENU_BUTTON_COMMAND_TYPES ={
-    COMMANDS: "commands",
-    WEB_APP: "web_app",
-    DEFAULT: "default"
-}as const
+export const MENU_BUTTON_COMMAND_TYPES = {
+    COMMANDS: 'commands',
+    WEB_APP: 'web_app',
+    DEFAULT: 'default'
+} as const

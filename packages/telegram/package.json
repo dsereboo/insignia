@@ -2,9 +2,12 @@
   "name": "@insignia/telegram",
   "version": "1.0.0",
   "description": "Telegram Integration Package",
-  "keywords":["Insignia","Telegram"],
+  "keywords": [
+    "Insignia",
+    "Telegram"
+  ],
   "homepage": "https://github.com/dsereboo/insignia",
-  "bugs":{
+  "bugs": {
     "url": "https://github.com/dsereboo/insignia/issues"
   },
   "repository": {
@@ -16,11 +19,18 @@
   },
   "author": "dsereboo",
   "license": "MIT",
-  "files": ["dist"],
-  "type":"module",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
   "main": "dist/index.js",
   "scripts": {
+    "build": "tsup",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "packageManager": "pnpm@10.29.3"
+  "packageManager": "pnpm@10.29.3",
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "5.9.3"
+  }
 }
