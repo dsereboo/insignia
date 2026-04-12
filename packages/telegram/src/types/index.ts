@@ -145,3 +145,15 @@ export interface GetChatMemberCount {
 export interface GetChatMember {
     chat_id: number | string
 }
+
+export interface BotName {
+    name:string
+}
+
+export interface BotDescription{
+    description:string
+}
+
+export interface BotShortDescription{
+    short_description:string
+}

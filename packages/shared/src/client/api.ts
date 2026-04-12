@@ -14,7 +14,15 @@ export interface HttpResponse<T = unknown> {
     headers: Record<string, string>
 }
 
-export class HTTPClient {
+export interface IHTTPClient {
+    get<T>(path: string, config?: Omit<RequestConfig, 'body'>): Promise<HttpResponse<T>>
+    post<T>(path: string, body: unknown, config?: Omit<RequestConfig, 'body'>): Promise<HttpResponse<T>>
+    put<T>(path: string, body: unknown, config?: Omit<RequestConfig, 'body'>): Promise<HttpResponse<T>>
+    patch<T>(path: string, body: unknown, config?: Omit<RequestConfig, 'body'>): Promise<HttpResponse<T>>
+    delete<T>(path: string, config?: Omit<RequestConfig, 'body'>): Promise<HttpResponse<T>>
+}
+
+export class HTTPClient implements IHTTPClient {
     private baseURL: string
     private defaultHeaders: Record<string, string>
     private timeout: number

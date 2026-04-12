@@ -1,12 +1,29 @@
-import type { DeleteMyCommands, SetMyCommands } from '../types/index.js'
-import { METHOD_NAMES, TELEGRAM_API_BASE_URL } from '../utils/constants.js'
-import { HTTPClient } from '@insignia/shared'
+import type {
+    BotCommand,
+    BotDescription,
+    BotName,
+    BotShortDescription,
+    DeleteMyCommands,
+    GetChatMenuButton,
+    GetMyCommands,
+    GetMyDescription,
+    GetMyName,
+    MenuButton,
+    SetChatMenuButton,
+    SetMyCommands,
+    SetMyDescription,
+    SetMyName,
+    SetMyProfilePhoto,
+    SetMyShortDescription
+} from '../types'
+import { METHOD_NAMES, TELEGRAM_API_BASE_URL } from '../utils/constants'
+import { HTTPClient, type IHTTPClient } from '@insignia/shared'
 
 export class TelegramClient {
-    private client: HTTPClient
+    private client: IHTTPClient
 
-    constructor(token: string) {
-        this.client = new HTTPClient(`${TELEGRAM_API_BASE_URL}/bot${token}`)
+    constructor(token: string, client?: IHTTPClient) {
+        this.client = client ?? new HTTPClient(`${TELEGRAM_API_BASE_URL}/bot${token}`)
     }
 
     public async setMyCommands(request: SetMyCommands): Promise<boolean> {
@@ -19,25 +36,73 @@ export class TelegramClient {
         return response.data
     }
 
-    public async getMyCommands() {}
+    public async getMyCommands(request: GetMyCommands): Promise<Array<BotCommand>> {
+        const response = await this.client.post<Array<BotCommand>>(
+            METHOD_NAMES.GET_COMMANDS,
+            request
+        )
+        return response.data
+    }
 
-    public async setMyName() {}
+    public async setMyName(request: SetMyName): Promise<boolean> {
+        const response = await this.client.post<boolean>(METHOD_NAMES.SET_NAME, request)
+        return response.data
+    }
 
-    public async getMyName() {}
+    public async getMyName(request: GetMyName): Promise<BotName> {
+        const response = await this.client.post<BotName>(METHOD_NAMES.GET_NAME, request)
+        return response.data
+    }
 
-    public async setMyDescriptions() {}
+    public async setMyDescription(request: SetMyDescription): Promise<boolean> {
+        const response = await this.client.post<boolean>(METHOD_NAMES.SET_DESCRIPTION, request)
+        return response.data
+    }
 
-    public async getMyDescriptions() {}
+    public async getMyDescription(request: GetMyDescription): Promise<BotDescription> {
+        const response = await this.client.post<BotDescription>(
+            METHOD_NAMES.GET_DESCRIPTION,
+            request
+        )
+        return response.data
+    }
 
-    public async setMyShortDescription() {}
+    public async setMyShortDescription(request: SetMyShortDescription): Promise<boolean> {
+        const response = await this.client.post<boolean>(
+            METHOD_NAMES.SET_SHORT_DESCRIPTION,
+            request
+        )
+        return response.data
+    }
 
-    public async getMyShortDescription() {}
+    public async getMyShortDescription(request: GetMyDescription): Promise<BotShortDescription> {
+        const response = await this.client.post<BotShortDescription>(
+            METHOD_NAMES.GET_SHORT_DESCRIPTION,
+            request
+        )
+        return response.data
+    }
 
-    public async setMyProfilePhoto() {}
+    public async setMyProfilePhoto(request: SetMyProfilePhoto): Promise<boolean> {
+        const response = await this.client.post<boolean>(METHOD_NAMES.SET_PROFILE_PHOTO, request)
+        return response.data
+    }
 
-    public async removeMyProfilePhoto() {}
+    public async removeMyProfilePhoto(): Promise<boolean> {
+        const response = await this.client.post<boolean>(METHOD_NAMES.REMOVE_PROFILE_PHOTO, {})
+        return response.data
+    }
 
-    public async setChatMenuButton() {}
+    public async setChatMenuButton(request: SetChatMenuButton): Promise<boolean> {
+        const response = await this.client.post<boolean>(METHOD_NAMES.SET_CHAT_MENU_BUTTON, request)
+        return response.data
+    }
 
-    public async getChatMenuButton() {}
+    public async getChatMenuButton(request: GetChatMenuButton): Promise<Array<MenuButton>> {
+        const response = await this.client.post<Array<MenuButton>>(
+            METHOD_NAMES.GET_CHAT_MENU_BUTTON,
+            request
+        )
+        return response.data
+    }
 }

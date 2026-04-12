@@ -13,7 +13,17 @@ export const BOT_SCOPE_TYPES = {
 export const METHOD_NAMES = {
     SET_COMMANDS: '/setMyCommands',
     DELETE_COMMANDS: '/deleteMyCommands',
-    GET_COMMANDS: '/getMyCommands'
+    GET_COMMANDS: '/getMyCommands',
+    SET_NAME: "/setMyName",
+    GET_NAME: "/getMyName",
+    SET_DESCRIPTION: "/setMyDescription",
+    GET_DESCRIPTION: "/getMyDescription",
+    SET_SHORT_DESCRIPTION: "/setMyShortDescription",
+    GET_SHORT_DESCRIPTION: "/getMyShortDescription",
+    SET_PROFILE_PHOTO:"/setMyProfilePhoto",
+    REMOVE_PROFILE_PHOTO:"/removeMyProfilePhoto",
+    SET_CHAT_MENU_BUTTON:"/setChatMenuButton",
+    GET_CHAT_MENU_BUTTON:"/getChatMenuButton"
 } as const
 
 export const PHOTO_TYPES = {
