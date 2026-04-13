@@ -1,0 +1,17 @@
+export const HTTP_METHODS = {
+  GET: "GET",
+  POST: "POST",
+  PUT: "PUT",
+  PATCH: "PATCH",
+  DELETE: "DELETE",
+} as const;
+
+export const STATUS_CODES = {
+  SUCCESS: 200,
+  ACCEPTED: 202,
+  UNAUTHORIZED: 401,
+  BADREQUEST: 400,
+  NOT_FOUND:404,
+  INTERNAL_SERVER_ERROR:500,
+  RATE_LIMIT:429
+} as const;

@@ -1,0 +1,23 @@
+{
+  "name": "insignia",
+  "version": "1.0.0",
+  "description": "Developer tools center",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "dsereboo",
+    "engines": {
+    "node": "^18.0.0"
+  },
+  "license": "ISC",
+  "type": "module",
+  "packageManager": "pnpm@10.29.3",
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2"
+  }
+}
